@@ -115,4 +115,8 @@ source $ZSH/oh-my-zsh.sh
 
 {{ if eq .chezmoi.hostname "nvcluster" }}
 {{   include ".zshrc_nvcluster" }}
+{{ else if eq .chezmoi.hostname "Dusan-Linux" }}
+{{   include ".zshrc_icgpc" }}
 {{ end }}
+
+{{  include ".zshrc_shared"  }}
