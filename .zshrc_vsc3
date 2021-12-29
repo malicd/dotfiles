@@ -1,0 +1,3 @@
+export PATH=$PATH:$HOME/bin
+
+alias vim=$HOME/bin/vim
