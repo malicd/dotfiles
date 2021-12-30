@@ -21,8 +21,10 @@ Clone latest [vim](https://github.com/vim/vim), compile it and install locally i
 ./configure --with-python3-command=python3.6 \
             --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu/ \
             --with-features=huge  \
+            --enable-fail-if-missing \
             --enable-multibyte \
-            --enable-pythoninterp \
+            --enable-largefile \
+            --enable-python3interp \
             --prefix=$HOME
 make -j
 make install
