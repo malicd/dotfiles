@@ -11,13 +11,17 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-swap'
 Plug 'lervag/vimtex'
-Plug 'tmhedberg/SimpylFold'
 Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'rhysd/clever-f.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tweekmonster/braceless.vim'
+Plug 'AndrewRadev/switch.vim'
 call plug#end()
 
 
@@ -29,6 +33,7 @@ set cursorcolumn
 set list
 set wrap
 set expandtab
+set nostartofline
 
 
 " NERDTree
@@ -266,9 +271,26 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+"
 " vimdiff
 " -------------------------------------------------------------------
 map <leader>dgr :diffget RE<CR>
 map <leader>Dgr :%diffget RE<CR>
 map <leader>dgl :diffget LO<CR>
 map <leader>Dgl :%diffget LO<CR>
+
+"
+" vim-easy-align
+" ------------------------------------------------------------------
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+
+" Braceless
+" -----------------------------------------------------------------
+autocmd FileType python BracelessEnable +indent +fold +highlight-cc
+
+
+" switch.vim
+" -----------------------------------------------------------------
+let g:switch_mapping = "-"
