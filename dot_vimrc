@@ -22,6 +22,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tweekmonster/braceless.vim'
 Plug 'AndrewRadev/switch.vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 call plug#end()
 
 
@@ -294,3 +295,8 @@ autocmd FileType python BracelessEnable +indent +fold +highlight-cc
 " switch.vim
 " -----------------------------------------------------------------
 let g:switch_mapping = "-"
+
+"
+" vim-dodge
+" -----------------------------------------------------------------
+let g:doge_doc_standard_python = 'google'
