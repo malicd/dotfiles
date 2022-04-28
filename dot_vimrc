@@ -23,6 +23,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tweekmonster/braceless.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'haya14busa/incsearch.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 
@@ -30,7 +32,6 @@ call plug#end()
 " -------------------------------------------------------------------
 let g:coc_disable_startup_warning = 1
 set cursorline
-set cursorcolumn
 set list
 set wrap
 set expandtab
@@ -289,14 +290,26 @@ nmap ga <Plug>(EasyAlign)
 
 " Braceless
 " -----------------------------------------------------------------
-autocmd FileType python BracelessEnable +indent +fold +highlight-cc
+autocmd FileType python BracelessEnable +indent +fold
 
 
 " switch.vim
 " -----------------------------------------------------------------
 let g:switch_mapping = "-"
 
-"
+
 " vim-dodge
 " -----------------------------------------------------------------
 let g:doge_doc_standard_python = 'google'
+
+
+" incsearch
+" -----------------------------------------------------------------
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+
+" vim-easymotion
+" -----------------------------------------------------------------
+nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
