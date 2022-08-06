@@ -1,4 +1,16 @@
 {
   "git.enableGutters": false,
+  "coc.source.bibtex.triggerPatterns": ["\\\\cite\\{", "cite"],
+  "coc.source.bibtex.triggerCharacters": [],
+    "list": {
+    "source": {
+      "bibtex": {
+        "files": [
+          "egbib.bib",
+          "main.bib"
+        ]
+      }
+    }
+  }
 }
 

@@ -26,6 +26,8 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-repeat'
+Plug 'vim-autoformat/vim-autoformat'
 call plug#end()
 
 
@@ -201,8 +203,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-nmap <silent> gd :call CocAction('jumpDefinition', 'split')<CR>
-
 
 " absolute/relative line number
 " -------------------------------------------------------------------
@@ -316,3 +316,8 @@ map g/ <Plug>(incsearch-stay)
 " vim-easymotion
 " -----------------------------------------------------------------
 nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+
+" vim-autoformat
+" -----------------------------------------------------------------
+noremap <F3> :Autoformat<CR>
+let g:formatdef_latexindent = '"latexindent -"'
