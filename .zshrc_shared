@@ -15,3 +15,5 @@ alias v='xclip -o'
 alias updt='sudo apt update && sudo apt upgrade -y'
 
 PATH="${PATH:+${PATH}:}/home/`whoami`/bin"
+
+xmodmap ~/.Xmodmap

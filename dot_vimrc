@@ -40,6 +40,17 @@ set wrap
 set expandtab
 set nostartofline
 
+" quickfix toogle
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+nnoremap <silent> <F2> :call ToggleQuickFix()<cr>
+
+
 
 " NERDTree
 " -------------------------------------------------------------------
@@ -50,7 +61,7 @@ let NERDTreeShowHidden=1
 
 " CoC
 " -------------------------------------------------------------------
-let g:coc_global_extensions = ['coc-pyright', 'coc-snippets']
+let g:coc_global_extensions = ['coc-pyright', 'coc-snippets', 'coc-bibtex', 'coc-git', 'coc-snippets', 'coc-ultisnips', 'coc-vimtex', 'coc-yaml']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
