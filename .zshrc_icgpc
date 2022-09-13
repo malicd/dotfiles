@@ -1,6 +1,7 @@
 alias mt_europa='sudo mount -t cifs -o username=malic //129.27.201.3/proceedings europa'
-alias mt_nvlcuster='sshfs dule95@nvcluster.tugraz.at:/home/dule95 nvcluster'
-alias mt_vsc='sshfs dmalic@vsc3.vsc.ac.at:/home/lv71513/dmalic vsc'
+alias mt_nvcluster='sshfs dule95@nvcluster.tugraz.at:/home/dule95 nvcluster'
+alias mt_vsc3='sshfs dmalic@vsc3.vsc.ac.at:/home/lv71513/dmalic vsc'
+alias mt_vsc5='sshfs vsc5:/home/fs71513/dmalic vsc5'
 
 alias gpun1='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node1.tugraz.at nvidia-smi'
 alias gpun2='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node2.tugraz.at nvidia-smi'
