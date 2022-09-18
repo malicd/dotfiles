@@ -28,6 +28,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-repeat'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'puremourning/vimspector'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
