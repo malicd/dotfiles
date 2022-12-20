@@ -63,7 +63,6 @@ DISABLE_AUTO_UPDATE="true"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -80,7 +79,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting vi-mode)
+plugins=(git zsh-syntax-highlighting vi-mode zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,3 +121,9 @@ source $ZSH/oh-my-zsh.sh
 {{ end }}
 
 {{  include ".zshrc_shared"  }}
+
+###################
+# zsh-autocomplete
+###################
+zstyle ':autocomplete:*' fzf-completion yes
+zstyle ':autocomplete:*' widget-style menu-select
