@@ -31,6 +31,7 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'puremourning/vimspector'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-sensible'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 
@@ -342,6 +343,13 @@ nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
 " noremap <F3> :Autoformat<CR>
 let g:formatdef_latexindent = '"latexindent -"'
 
+
+"
+" indentLine
+" -----------------------------------------------------------------
+let g:indentLine_setConceal = 0
+
+
 "
 " vimspector
 " -----------------------------------------------------------------
@@ -352,3 +360,5 @@ nmap <Leader>vcb :call vimspector#ClearBreakpoints()<CR>
 nmap <Leader>vr :call vimspector#Reset( { 'interactive': v:false } )<CR>
 nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <Leader>u <Plug>VimspectorUpFrame
+nmap <Leader>o <Plug>VimspectorDownFrame
