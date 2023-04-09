@@ -21,3 +21,5 @@ PATH="${PATH:+${PATH}:}/home/`whoami`/bin"
 xmodmap ~/.Xmodmap
 
 eval $(thefuck --alias)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
