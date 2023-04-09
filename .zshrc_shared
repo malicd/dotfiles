@@ -1,18 +1,20 @@
 compresspdf() {
-	abspath=$(realpath -- "$1")
-	parentdir=$(dirname "$abspath")
-	filename=$(basename -- "$1")
-	extension="${filename##*.}"
-	filename="${filename%.*}"
-	cfilename="$parentdir/$filename"_compressed."$extension"
-	echo "Saving file to $cfilename"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$cfilename" "$1"
+        abspath=$(realpath -- "$1")
+        parentdir=$(dirname "$abspath")
+        filename=$(basename -- "$1")
+        extension="${filename##*.}"
+        filename="${filename%.*}"
+        cfilename="$parentdir/$filename"_compressed."$extension"
+        echo "Saving file to $cfilename"
+        gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$cfilename" "$1"
 }
 
 alias c='xclip -selection clipboard'
 alias v='xclip -o'
-
 alias updt='sudo apt update && sudo apt upgrade -y'
+alias s='source venv/bin/activate'
+
+alias clipmenu="clipmenu -i -fn Terminus:size=8 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'"
 
 PATH="${PATH:+${PATH}:}/home/`whoami`/bin"
 

@@ -1,19 +1,23 @@
-alias mt_europa='sudo mount -t cifs -o username=malic //129.27.201.3/proceedings europa'
-alias mt_nvcluster='sshfs dule95@nvcluster.tugraz.at:/home/dule95 nvcluster'
-alias mt_vsc3='sshfs dmalic@vsc3.vsc.ac.at:/home/lv71513/dmalic vsc'
-alias mt_vsc5='sshfs vsc5:/home/fs71513/dmalic vsc5'
-
-alias gpun1='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node1.tugraz.at nvidia-smi'
-alias gpun2='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node2.tugraz.at nvidia-smi'
-alias gpun3='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node3.tugraz.at nvidia-smi'
-alias gpun4='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node4.tugraz.at nvidia-smi'
-alias gpun5='ssh -o StrictHostKeyChecking=no dule95@nvcluster-node4.tugraz.at ssh -o StrictHostKeyChecking=no dule95@nvcluster-node5.tugraz.at nvidia-smi'
-
-# ROS environment
-source /opt/ros/melodic/setup.zsh
+alias mt_europa='mkdir -p ~/europa && sudo mount -t cifs -o username=malic //129.27.201.3/proceedings ~/europa'
+alias mt_nvcluster='mkdir -p ~/nvcluster && sshfs nvcluster:/home/dule95 ~/nvcluster'
+alias mt_vsc5='mkdir -p ~/vsc && sshfs vsc5:/home/fs71513/dmalic ~/vsc'
+alias mt_okeanos='mkdir -p ~/okeanos && sshfs okeanos:/home/malic ~/okeanos'
 
 # CUDA
-PATH=$PATH:/usr/local/cuda-11.3/bin
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.3/lib64:/usr/local/cuda-11.3/targets/x86_64-linux/lib
-# PATH=$PATH:/usr/local/cuda-10.1/bin
-# LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.1/lib64:/usr/local/cuda/targets/x86_64-linux/lib
+PATH=$PATH:/usr/local/cuda/bin
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dusan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dusan/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/dusan/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dusan/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
