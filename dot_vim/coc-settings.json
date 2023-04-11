@@ -1,4 +1,5 @@
 {
+  "pyright.inlayHints.variableTypes": false,
   "git.enableGutters": false,
   "coc.source.bibtex.triggerPatterns": ["\\\\cite\\{", "cite"],
   "coc.source.bibtex.triggerCharacters": [],
@@ -11,6 +12,7 @@
         ]
       }
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
 
