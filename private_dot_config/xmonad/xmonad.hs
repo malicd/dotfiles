@@ -20,6 +20,7 @@ import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.MultiColumns
 
 import XMonad.Hooks.EwmhDesktops
 
@@ -74,13 +75,7 @@ myConfig = def
     , startupHook        = myStartupHook
     } `additionalKeysP` myKeys
 
-myLayoutHook = Full ||| tall ||| Mirror tall
-   where
-  -- Two master panes, 1/10th resize increment, only show master
-  -- panes by default. Unlike plain 'Tall', this also allows
-  -- resizing the master panes, via the 'MirrorShrink' and
-  -- 'MirrorExpand' messages.
-  tall = ResizableTall 2 (1/10) 1 []
+myLayoutHook = Full ||| Tall 1 (3/100) (1/2) ||| Mirror (multiCol [1] 1 0.01 (-0.5))
 
 myStartupHook :: X ()
 myStartupHook = do
@@ -88,24 +83,16 @@ myStartupHook = do
   spawnOnce "dunst --startup_notification true"
 
 myKeys =
-    [ ("M-S-z"            , spawn "xscreensaver-command -lock"                                   )
-    , ("M-C-s"            , unGrab *> spawn "scrot -s"                                           )
-    -- , ("M-h"              , spawn "alacritty -e clipcat-menu --finder=builtin edit --editor vim" )
-
-    , ("M-f"              , spawn "firefox"                                                      )
-    , ("M-n"              , spawn "nautilus"                                                     )
-
-    , ("<XF86AudioMute>"            , spawn "amixer -D pulse sset Master toggle"                           )
-    , ("<XF86AudioRaiseVolume>"    , spawn "amixer -D pulse sset Master 5%+"                              )
-    , ("<XF86AudioLowerVolume>"  , spawn "amixer -D pulse sset Master 5%-"                              )
-    , ("<XF86AudioPrev>"              , spawn "playerctl -a previous"                                        )
-    , ("<XF86AudioPlay>"              , spawn "playerctl -a play-pause"                                      )
-    , ("<XF86AudioNext>"              , spawn "playerctl -a next"                                            )
-
-    , ("M-<Left>"      , sendMessage MirrorExpand                                            )
-    , ("M-<Up>"        , sendMessage MirrorExpand                                            )
-    , ("M-<Right>"     , sendMessage MirrorShrink                                            )
-    , ("M-<Down>"      , sendMessage MirrorShrink                                            )
+    [ ("M-S-z",                  spawn "xscreensaver-command -lock"                                   )
+    , ("M-C-s",                  unGrab *> spawn "scrot -s"                                           )
+    , ("M-f",                    spawn "firefox"                                                      )
+    , ("M-n",                    spawn "nautilus"                                                     )
+    , ("<XF86AudioMute>",        spawn "amixer -D pulse sset Master toggle"                           )
+    , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse sset Master 5%+"                              )
+    , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse sset Master 5%-"                              )
+    , ("<XF86AudioPrev>",        spawn "playerctl -a previous"                                        )
+    , ("<XF86AudioPlay>",        spawn "playerctl -a play-pause"                                      )
+    , ("<XF86AudioNext>",        spawn "playerctl -a next"                                            )
     ]
     ++
     -- change M-{w,e,r} order to match the screen order
