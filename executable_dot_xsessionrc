@@ -17,7 +17,10 @@ xscreensaver -no-splash &
 xfce4-power-manager &
 
 # Hides mouse cursor if not needed
-unclutter &
+xbanish &
+
+# Screenshot tool
+flameshot &
 
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &

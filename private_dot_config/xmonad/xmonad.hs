@@ -84,7 +84,7 @@ myStartupHook = do
 
 myKeys =
     [ ("M-S-z",                  spawn "xscreensaver-command -lock"                                   )
-    , ("M-C-s",                  unGrab *> spawn "scrot -s"                                           )
+    , ("M-C-s",                  unGrab *> spawn "flameshot gui"                                      )
     , ("M-f",                    spawn "firefox"                                                      )
     , ("M-n",                    spawn "nautilus"                                                     )
     , ("<XF86AudioMute>",        spawn "amixer -D pulse sset Master toggle"                           )
